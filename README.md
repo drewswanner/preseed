@@ -2,7 +2,7 @@
 
 This is a script for building a new installer for Debian "bullseye" using a technique called a "preseeding". By using a "preseed" script we tell the installer the answer to a lot of routine questions to give ourselves a standard environment for new hosts. The script in this repository does the following:
 
-* Creates a "paul" user with a known password and an SSH authorized_keys file and a known good environment.
+* Creates a "drew" user with a known password and an SSH authorized_keys file and a known good environment.
 * Builds an LVM configuration with an 8GB swap partition and the rest of the disk for data using XFS as a file system instead of ext4.
 * Enables "security" and "updates" repositories but does not enable backports, sources or automatic updates.
 * Fixes the systemd timesync configuration.
@@ -30,7 +30,7 @@ Follow these steps to run this script:
 5. Run the build script: `./build /path/to/debian-11.x.x-amd64-netinst.iso /path/to/preseed-debian-11.x.x-amd64-netinst.iso`
 6. Use the new ISO file to build your host.
 
-Note that the preseed.cfg file has no password for logging in as the "paul" user. You can set a password or just use SSH keys. You can change the password by following these steps:
+Note that the preseed.cfg file has no password for logging in as the "drew" user. You can set a password or just use SSH keys. You can change the password by following these steps:
 
 1. Put the new password in a text file. Call it something like "newpassword.txt".
 2. Generate the new password: `cat newpassword.txt | mkpasswd -s -m sha-512 -S "$(pwgen -ns 16 1)"`

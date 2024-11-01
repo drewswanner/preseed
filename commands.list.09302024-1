@@ -1,0 +1,213 @@
+    1  visudo
+    2  man visudo
+    3  man sudo
+    4  man visudo
+    5  visudo
+    6  dmesg
+    7  ls
+    8  cd /var/log
+    9  ls
+   10  ls -ltr
+   11  cat messages
+   12  journalctl
+   13  reboot
+   14  ls
+   15  df
+   16  cd /etc/
+   17  git init
+   18  apt-get install git
+   19  git init
+   20  git add *
+   21  git status
+   22  git commit
+   23  git status
+   24  cd net
+   25  cd network
+   26  ls
+   27  ls -l
+   28  cd interfaces
+   29  ls
+   30  vi interfaces
+   31  ls
+   32  cd interfaces.d/
+   33  ls
+   34  ls -l
+   35  cd ..
+   36  cd /var/log
+   37  ls
+   38  journalctl
+   39  journalctl | grep dhclient
+   40  cd /var
+   41  git init
+   42  git add *
+   43  git status
+   44  git commit
+   45  ls
+   46  git status
+   47  df
+   48  git commit
+   49  git commit
+   50  git status
+   51  git status
+   52  df
+   53  cd
+   54  ls
+   55  dpkg -l >> packages.09302024
+   56  echo "#_preseed_V1" > preseed.finally.txt
+   57  debconf-get-selections --installer >> preseed.finally.txt 
+   58  apt-get install debconf-get-selections
+   59  apt-get install debconf
+   60  apt-get install debconf*
+   61  apt-get install debconf-utils
+   62  debconf-get-selections --installer >> preseed.finally.txt 
+   63  debconf-get-selections >> preseed.finally.txt 
+   64  debconf-set-selections -c preseed.finally.txt 
+   65  ls
+   66  vi preseed.finally.txt 
+   67  vi preseed.finally.txt 
+   68  ip addr
+   69  dhclient ethen1s1
+   70  dhclient enp1s0
+   71  ip addr
+   72  apt-get update
+   73  apt-get upgrade
+   74  apt-get upgrade
+   75  df
+   76  ls /home
+   77  ls /boot
+   78  ls /home/drew
+   79  cd /
+   80  ls
+   81  df
+   82  df -h
+   83  ls
+   84  ls
+   85  cd /
+   86  ls
+   87  ls -l
+   88  ls var
+   89  du -sh *
+   90  ls /tmp
+   91  cd /tmp
+   92  ls
+   93  rm -r systemd-private-ac75a777838d450aba45c5544b60802c-systemd-logind.service-5HbC71/
+   94  ls
+   95  df
+   96  cd /
+   97  cd /usr
+   98  ls
+   99  ls -l
+  100  ls src
+  101  ls local
+  102  ls -lR local
+  103  ls
+  104  df
+  105  ls
+  106  cd /
+  107  ls
+  108  ls -l
+  109  du -sh *
+  110  cd /etc
+  111  ls
+  112  git statsu
+  113  git status
+  114  ls -ld .pw*
+  115  man pwd.locak
+  116  man pwd.lock
+  117  rm .pwd.lock
+  118  ls
+  119  ls
+  120  ls -l
+  121  ls -lR
+  122  du -sh *
+  123  du -sh * | grep G
+  124  du -sh * | grep M
+  125  du -sh * | sort
+  126  git gc
+  127  git
+  128  git status
+  129  git show
+  130  git
+  131  df
+  132  cd /ar
+  133  ls
+  134  cd /var
+  135  ls
+  136  ls -l
+  137  df
+  138  ls
+  139  git gc
+  140  ls
+  141  cd tmp
+  142  ls
+  143  ls ls
+  144  cd ..
+  145  ls
+  146  ls spool
+  147  ls -lR spool/
+  148  ls run
+  149  ls opt
+  150  ls mail
+  151  ls
+  152  cd log
+  153  ls
+  154  ls -l
+  155  ls -lR
+  156  apt 
+  157  apt autoremove
+  158  apt -h
+  159  apt-cache
+  160  apt-cache -h
+  161  ls
+  162  ls
+  163  ls apt
+  164  mc
+  165  /usr/bin/mc
+  166  apt-get install mc
+  167  journalctl -h
+  168  journalctl --since=09/30/202401:00:00
+  169  journalctl --since="09/30/202401:00:00"
+  170  journalctl --since=1day
+  171  man journalctl
+  172  man journalctl
+  173  man journalctl
+  174  journalctl
+  175  journalctl --help
+  176  journalctl --since="09/30/2024"
+  177  journalctl --since="09-30-2024"
+  178  journalctl --since=09-30-2024
+  179  journalctl --vacuum-time=2d
+  180  journalctl 
+  181  journalctl --vacuum-time=1hr
+  182  journalctl 
+  183  journalctl --vacuum-size=20m
+  184  journalctl --vacuum-size=20M
+  185  journalctl --vacuum-size=2M
+  186  journalctl
+  187  journalctl --vacuum-size=2M --flush
+  188  journalctl
+  189  systemctl restart systemd-journald
+  190  jounalctl
+  191  journalctl
+  192  ls
+  193  ls -l
+  194  ls apt
+  195  mc
+  196  reboot
+  197  cd /var
+  198  ls
+  199  mc
+  200  ls
+  201  cd
+  202  ls
+  203  apt-get install mc zsh git make sudo 
+  204  ls
+  205  pwd
+  206  cd
+  207  ls
+  208  pwd
+  209  ls
+  210  dpkg -l >> packages.09302024-2 
+  211  history -9999
+  212  history 9999
+  213  history 9999 >> commands.list.09302024-1

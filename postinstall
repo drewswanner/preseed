@@ -9,7 +9,7 @@ echo -n > /etc/motd
 DEBIAN_FRONTEND=noninteractive apt-get purge -y laptop-detect tasksel emacsen-common ienglish-common ispell
 
 # install some additional packages
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends linux-headers-amd64 openssh-server sudo time openssl gnutls-bin zip unzip bzip2 lynx vim vim-scripts curl whois net-tools patch telnet sqlite3 strace lsof less screen rsync git git-lfs dos2unix myrepos traceroute bash-completion socat busybox psmisc man-db dnsutils unattended-upgrades gpg-agent gnupg software-properties-common tcpdump make gzrt jq bash zsh htop dbus-user-session fuse3 acl python3-venv python3-pip python3-setuptools python3-wheel python3-psutil python3-pylibacl python3-sh python3-prometheus-client rdiff-backup xfsprogs smartmontools
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openssh-server sudo 
 
 # members of `sudo` group are not asked for password.
 sed -i 's/^%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
@@ -31,21 +31,25 @@ cp /tmp/postinstall.d/apt.conf.d/20auto-upgrades /etc/apt/apt.conf.d/20auto-upgr
 cp /tmp/postinstall.d/vimrc /root/.vimrc
 cp /tmp/postinstall.d/bash_login /root/.bash_login
 
-# add our sudoers file for paul
-cp /tmp/postinstall.d/sudoers /etc/sudoers.d/paul
-chmod 400 /etc/sudoers.d/paul
+# add our sudoers file for drew
+cp /tmp/postinstall.d/sudoers /etc/sudoers.d/drew
+chmod 400 /etc/sudoers.d/drew
 
-# install ssh keys and other things for paul user
-mkdir -m700 -p /home/paul/.ssh
-cp /tmp/postinstall.d/authorized_keys /home/paul/.ssh/authorized_keys
-cp /tmp/postinstall.d/vimrc /home/paul/.vimrc
-cp /tmp/postinstall.d/bash_login /home/paul/.bash_login
+# install ssh keys and other things for drew user
+mkdir -m700 -p /home/drew/.ssh
+cp /tmp/postinstall.d/authorized_keys /home/drew/.ssh/authorized_keys
+cp /tmp/postinstall.d/vimrc /home/drew/.vimrc
+cp /tmp/postinstall.d/bash_login /home/drew/.bash_login
 
 # fix permissions on root home directory
 chmod 700 /root
 chmod 600 /root/.bash_login
 
-# fix permissions on paul home directory
-chown -R paul:paul /home/paul
-chmod 700 /home/paul
-chmod 600 /home/paul/.bash_login /home/paul/.ssh/authorized_keys
+# fix permissions on drew home directory
+chown -R drew:drew /home/drew
+chmod 700 /home/drew
+chmod 600 /home/drew/.bash_login /home/drew/.ssh/authorized_keys
+
+git config set user.name "Drew Swanner"
+git config set user.email "drew@drewswanner.dev"
+
