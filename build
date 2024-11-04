@@ -24,20 +24,20 @@ CONFIGURATION_FILES="$(mktemp -d)"
 
 xorriso -osirrox on -indev $INPUTFILE -extract / $ISO_FILES
 
-chmod +w -R $ISO_FILES/install.a64/
-gunzip $ISO_FILES/install.a64/initrd.gz
+chmod +w -R $ISO_FILES/install.amd/
+gunzip $ISO_FILES/install.amd/initrd.gz
 
 # contains all of the files that we want on the remote system
 tar -c -z -f $CONFIGURATION_FILES/postinstall.tar.gz -C $CURDIR postinstall.d
 
 # now add these all to the initrd file
 cp $CURDIR/preseed.cfg $CONFIGURATION_FILES/preseed.cfg
-(cd $CONFIGURATION_FILES; echo preseed.cfg | cpio -H newc -o -A -F $ISO_FILES/install.a64/initrd)
-(cd $CONFIGURATION_FILES; echo postinstall.tar.gz | cpio -H newc -o -A -F $ISO_FILES/install.a64/initrd)
-echo postinstall | cpio -H newc -o -A -F $ISO_FILES/install.a64/initrd
+(cd $CONFIGURATION_FILES; echo preseed.cfg | cpio -H newc -o -A -F $ISO_FILES/install.amd/initrd)
+(cd $CONFIGURATION_FILES; echo postinstall.tar.gz | cpio -H newc -o -A -F $ISO_FILES/install.amd/initrd)
+echo postinstall | cpio -H newc -o -A -F $ISO_FILES/install.amd/initrd
 
-gzip $ISO_FILES/install.a64/initrd
-chmod -w -R $ISO_FILES/install.a64/
+gzip $ISO_FILES/install.amd/initrd
+chmod -w -R $ISO_FILES/install.amd/
 
 chmod +w $ISO_FILES/md5sum.txt
 (cd $ISO_FILES; md5sum `find -follow -type f` > md5sum.txt)

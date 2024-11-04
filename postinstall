@@ -9,7 +9,7 @@ echo -n > /etc/motd
 DEBIAN_FRONTEND=noninteractive apt-get purge -y laptop-detect tasksel emacsen-common ienglish-common ispell
 
 # install some additional packages
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openssh-server sudo 
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openssh-server sudo xorriso isolinux mc git
 
 # members of `sudo` group are not asked for password.
 sed -i 's/^%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
@@ -22,6 +22,10 @@ sed -i 's/^#NTP=/NTP=us.pool.ntp.org/' /etc/systemd/timesyncd.conf
 
 # unpack the postinstall tar file
 tar -z -x -C /tmp -f /tmp/postinstall.tar.gz
+
+# etc Fixes
+cp /tmp/postinstall.d/etc/systemd/logind.conf /etc/systemd
+cp /tmp/postinstall.d/.gitconfig /root/.gitconfig
 
 # install global things and root things
 mkdir -m700 -p /root/.ssh
@@ -37,7 +41,11 @@ chmod 400 /etc/sudoers.d/drew
 
 # install ssh keys and other things for drew user
 mkdir -m700 -p /home/drew/.ssh
+
 cp /tmp/postinstall.d/authorized_keys /home/drew/.ssh/authorized_keys
+cp /tmp/postinstall.d/Keys/authorized_keys /home/drew/.ssh/authorized_keys
+
+cp /tmp/postinstall.d/.gitconfig /home/drew/.gitconfig
 cp /tmp/postinstall.d/vimrc /home/drew/.vimrc
 cp /tmp/postinstall.d/bash_login /home/drew/.bash_login
 
@@ -49,7 +57,3 @@ chmod 600 /root/.bash_login
 chown -R drew:drew /home/drew
 chmod 700 /home/drew
 chmod 600 /home/drew/.bash_login /home/drew/.ssh/authorized_keys
-
-git config set user.name "Drew Swanner"
-git config set user.email "drew@drewswanner.dev"
-
