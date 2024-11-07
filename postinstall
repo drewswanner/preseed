@@ -9,7 +9,7 @@ echo -n > /etc/motd
 DEBIAN_FRONTEND=noninteractive apt-get purge -y laptop-detect tasksel emacsen-common ienglish-common ispell
 
 # install some additional packages
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends openssh-server sudo xorriso isolinux mc git
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends curl git gpg isolinux mc openssh-server sudo wget xorriso
 
 # members of `sudo` group are not asked for password.
 sed -i 's/^%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
@@ -23,9 +23,19 @@ sed -i 's/^#NTP=/NTP=us.pool.ntp.org/' /etc/systemd/timesyncd.conf
 # unpack the postinstall tar file
 tar -z -x -C /tmp -f /tmp/postinstall.tar.gz
 
+## Add Kubernetes 3.11
+curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.31/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+## Add Proxmox
+echo "deb [arch=amd64] http://download.proxmox.com/debian/pve bookworm pve-no-subscription" > /etc/apt/sources.list.d/pve-install-repo.list
+wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/apt/trusted.gpg.d/proxmox-release-bookworm.gpg
+
 # etc Fixes
 cp /tmp/postinstall.d/etc/systemd/logind.conf /etc/systemd
 cp /tmp/postinstall.d/.gitconfig /root/.gitconfig
+
+cp /tmp/postinstall.d/apt.kube /home/drew
+cp /tmp/postinstall.d/apt.proxmox /home/drew
 
 # install global things and root things
 mkdir -m700 -p /root/.ssh
@@ -42,7 +52,6 @@ chmod 400 /etc/sudoers.d/drew
 # install ssh keys and other things for drew user
 mkdir -m700 -p /home/drew/.ssh
 
-cp /tmp/postinstall.d/authorized_keys /home/drew/.ssh/authorized_keys
 cp /tmp/postinstall.d/Keys/authorized_keys /home/drew/.ssh/authorized_keys
 
 cp /tmp/postinstall.d/.gitconfig /home/drew/.gitconfig
