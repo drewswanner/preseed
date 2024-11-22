@@ -1,0 +1,11 @@
+127.0.0.1       localhost
+
+172.22.0.4 finally.drewswanner.dev finally
+172.22.0.5 yoda.drewswanner.dev yoda
+172.22.0.7 ils.drewswanner.dev ils ## Work Laptop
+172.22.0.7 grettirnas.drewswanner.dev grettirnas
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters

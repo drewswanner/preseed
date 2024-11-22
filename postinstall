@@ -47,6 +47,8 @@ cp /tmp/postinstall.d/apt.conf.d/20auto-upgrades /etc/apt/apt.conf.d/20auto-upgr
 cp /tmp/postinstall.d/vimrc /root/.vimrc
 cp /tmp/postinstall.d/bash_login /root/.bash_login
 
+git clone https://github.com/AdnanHodzic/displaylink-debian.git /home/drew/DisplayLink-Debian
+
 # add our sudoers file for drew
 cp /tmp/postinstall.d/sudoers /etc/sudoers.d/drew
 chmod 400 /etc/sudoers.d/drew

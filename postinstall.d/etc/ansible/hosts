@@ -1,0 +1,10 @@
+[servers]
+parallels ansible_host=10.211.55.52
+parallels1 ansible_host=10.211.55.61
+finally ansible_host=172.22.0.4
+yoda    ansible_host=172.22.0.5
+
+[proxmox]
+finally ansible_host=172.22.0.4
+yoda    ansible_host=172.22.0.5
+
