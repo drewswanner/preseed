@@ -81,6 +81,8 @@ chown -R drew:drew /home/drew
 chmod 700 /home/drew
 chmod 600 /home/drew/.bash_login /home/drew/.ssh/authorized_keys
 
+rm /etc/hostname
+
 if [[ `hostname` == 'yoda' ]];
 then
 	cp postinstall.d/etc/network/interface.yoda /etc/network/interface
