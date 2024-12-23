@@ -68,3 +68,12 @@ These links are where I got most of the information for building this preseed sc
 * [https://www.debian.org/releases/squeeze/example-preseed.txt](https://www.debian.org/releases/squeeze/example-preseed.txt)
 * [https://serverfault.com/questions/722021/preseeding-debian-install-efi](https://serverfault.com/questions/722021/preseeding-debian-install-efi)
 * [https://github.com/dsgnr/ubuntu-16.04-unattended-install/blob/master/preseed.cfg](https://github.com/dsgnr/ubuntu-16.04-unattended-install/blob/master/preseed.cfg)
+
+
+./build.arm64 ./isos/debian-12.7.0-arm64-netinst.iso  ./isos/preseed-debian-12.7.0-arm64-netinst-11072024.iso 
+./build.arm64 ./isos/debian-12.7.0-arm64-netinst.iso ./isos/preseed-debian-12.7.0-arm64-netinst-11152024.iso
+./build.arm64 ./isos/debian-12.7.0-arm64-netinst.iso ./isos/preseed-debian-12.7.0-arm64-netinst-11152024.iso
+./build.arm64 ./isos/debian-12.7.0-arm64-netinst.iso ./isos/preseed-debian-12.7.0-arm64-netinst-11152024.iso
+
+./build.arm64 /media/psf/iCloud/ISO/Debian/debian-12.7.0-arm64-netinst.iso /media/psf/iCloud/ISO/Debian/preseed-debian-12.7-0-arm64-netinst-11232024.iso 
+./build.arm64 /media/psf/iCloud/ISO/Debian/debian-12.7.0-arm64-netinst.iso /media/psf/iCloud/ISO/Debian/preseed-debian-12.7-0-arm64-netinst-11232024.iso 

@@ -1,0 +1,13 @@
+auto vmbr0
+
+iface vmbr0 inet static
+      address 192.168.0.13
+      broadcast 192.168.0.255
+      netmask 255.255.255.0
+      gateway 192.168.0.1
+      bridge_ports eno1
+      bridge_stp off
+          bridge_waitport 0
+          bridge_fd 0
+
+

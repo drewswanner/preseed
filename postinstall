@@ -57,6 +57,7 @@ cp /tmp/postinstall.d/vimrc /root/.vimrc
 cp /tmp/postinstall.d/bash_login /root/.bash_login
 
 git clone https://github.com/AdnanHodzic/displaylink-debian.git /home/drew/DisplayLink-Debian
+git clone https://github.com/netbootxyz/netboot.xyz
 
 # add our sudoers file for drew
 cp /tmp/postinstall.d/sudoers /etc/sudoers.d/drew
@@ -79,3 +80,14 @@ chmod 600 /root/.bash_login
 chown -R drew:drew /home/drew
 chmod 700 /home/drew
 chmod 600 /home/drew/.bash_login /home/drew/.ssh/authorized_keys
+
+if [[ `hostname` == 'yoda' ]];
+then
+	cp postinstall.d/etc/network/interface.yoda /etc/network/interface
+	cp postinstall.d/etc/network/vmbr0.yoda /etc/network/interfaces.d/vmbr0
+elif [[ `hostname` == 'finally' ]];
+then
+	cp postinstall.d/etc/network/interface.finally /etc/network/interface
+	cp postinstall.d/etc/network/vmbr0.finally /etc/network/interfaces.d/vmbr0
+fi
+
