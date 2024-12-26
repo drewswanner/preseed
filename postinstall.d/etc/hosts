@@ -1,9 +1,10 @@
 127.0.0.1       localhost
 
-172.22.0.4 finally.drewswanner.dev finally
-172.22.0.5 yoda.drewswanner.dev yoda
-172.22.0.7 ils.drewswanner.dev ils ## Work Laptop
-172.22.0.7 grettirnas.drewswanner.dev grettirnas
+192.168.0.7 ils.drewswanner.dev ils ## Work Laptop
+192.168.0.10 octopi.drewswanner.dev octopi
+192.168.0.11 grettirnas.drewswanner.dev grettirnas
+192.168.0.12 finally.drewswanner.dev finally
+192.168.0.13 yoda.drewswanner.dev yoda
 
 # The following lines are desirable for IPv6 capable hosts
 ::1     localhost ip6-localhost ip6-loopback

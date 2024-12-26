@@ -9,7 +9,7 @@ echo -n > /etc/motd
 DEBIAN_FRONTEND=noninteractive apt-get purge -y laptop-detect tasksel emacsen-common ienglish-common ispell
 
 # install some additional packages
-DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends curl git gpg isolinux mc openssh-server sudo wget xorriso
+DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends autofs curl git gpg isolinux mc openssh-server sudo wget xorriso
 
 # members of `sudo` group are not asked for password.
 sed -i 's/^%sudo\tALL=(ALL:ALL) ALL/%sudo\tALL=(ALL:ALL) NOPASSWD:ALL/' /etc/sudoers
@@ -42,6 +42,8 @@ wget https://enterprise.proxmox.com/debian/proxmox-release-bookworm.gpg -O /etc/
 echo "deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription" >> /etc/apt/sources.list.d/pve-install-repo.list
 
 # etc Fixes
+#cp /tmp/postinstall.d/etc/auto.master /etc/auto.master
+cp /tmp/postinstall.d/etc/hosts /etc/hosts
 cp /tmp/postinstall.d/etc/systemd/logind.conf /etc/systemd
 cp /tmp/postinstall.d/.gitconfig /root/.gitconfig
 
@@ -83,13 +85,23 @@ chmod 600 /home/drew/.bash_login /home/drew/.ssh/authorized_keys
 
 rm /etc/hostname
 
-if [[ `hostname` == 'yoda' ]];
+if [ `hostname` == 'yoda' ];
 then
-	cp postinstall.d/etc/network/interface.yoda /etc/network/interface
-	cp postinstall.d/etc/network/vmbr0.yoda /etc/network/interfaces.d/vmbr0
-elif [[ `hostname` == 'finally' ]];
+	cp /tmp/postinstall.d/etc/network/interface.yoda /etc/network
+	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.yoda /etc/network/interfaces.d
+	cp /tmp/postinstall.d/etc/network/interface.yoda /
+	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.yoda /
+elif [ `hostname` == 'finally' ];
 then
-	cp postinstall.d/etc/network/interface.finally /etc/network/interface
-	cp postinstall.d/etc/network/vmbr0.finally /etc/network/interfaces.d/vmbr0
+	cp /tmp/postinstall.d/etc/network/interface.finally /etc/network
+	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.finally /etc/network/interfaces.d
+	cp /tmp/postinstall.d/etc/network/interface.finally /
+	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.finally /
+elif [ `hostname` == 'debiantest' ];
+then
+	cp /tmp/postinstall.d/etc/network/interface.debiantest /etc/network
+	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.debiantest /etc/network/interfaces.d
+	cp /tmp/postinstall.d/etc/network/interface.debiantest /
+	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.debiantest /
 fi
 
