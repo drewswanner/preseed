@@ -85,19 +85,19 @@ chmod 600 /home/drew/.bash_login /home/drew/.ssh/authorized_keys
 
 rm /etc/hostname
 
-if [ `hostname` == 'yoda' ];
+if [ `/sbin/ifconfig eno1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'` == '2c:27:d7:d3:1e:c2' ];
 then
 	cp /tmp/postinstall.d/etc/network/interface.yoda /etc/network
 	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.yoda /etc/network/interfaces.d
 	cp /tmp/postinstall.d/etc/network/interface.yoda /
 	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.yoda /
-elif [ `hostname` == 'finally' ];
+elif [ `/sbin/ifconfig eno1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'` == '2c:27:d7:d3:1e:c2' ];
 then
 	cp /tmp/postinstall.d/etc/network/interface.finally /etc/network
 	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.finally /etc/network/interfaces.d
 	cp /tmp/postinstall.d/etc/network/interface.finally /
 	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.finally /
-elif [ `hostname` == 'debiantest' ];
+elif [ `/sbin/ifconfig eno1 | grep -o -E '([[:xdigit:]]{1,2}:){5}[[:xdigit:]]{1,2}'` == '2c:27:d7:d3:1e:c2' ];
 then
 	cp /tmp/postinstall.d/etc/network/interface.debiantest /etc/network
 	cp /tmp/postinstall.d/etc/network/interfaces.d/vmbr0.debiantest /etc/network/interfaces.d
